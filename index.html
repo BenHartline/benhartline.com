@@ -53,14 +53,27 @@
       font-weight:700; font-size:14px;
       transition: transform .08s ease, background .15s ease, border-color .15s ease;
     }
-    .btn:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+    .btn:hover{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.18);
+      color: #fff;
+    }
     .btn:active{ transform: translateY(1px); }
     .btn.primary{
       border: none;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       color:#07101f;
     }
-    .btn.primary:hover{ filter: brightness(1.05); }
+    .btn.primary:hover{
+      filter: brightness(1.05);
+      color:#fff;
+    }
+    .btn .icon{
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      object-fit: contain;
+    }
 
     header{ padding: 54px 0 18px; }
     .hero{
@@ -161,15 +174,13 @@
   <div class="nav">
     <div class="container">
       <div class="nav-inner">
-        <div class="brand">Ben Hartline</div>
+        <a class="brand" href="#" data-scroll="body">Ben Hartline</a>
         <div class="nav-links">
           <a href="#about" data-scroll="#about">About</a>
           <a href="#experience" data-scroll="#experience">Experience</a>
-          <a href="#education" data-scroll="#education">Education</a>
           <a href="#projects" data-scroll="#projects">Projects</a>
-          <a href="#skills" data-scroll="#skills">Skills</a>
           <a href="#contact" data-scroll="#contact">Contact</a>
-          <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf">Download Resume</a>
+          <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf" target="_blank" rel="noreferrer">Download Resume</a>
         </div>
       </div>
     </div>
@@ -178,28 +189,19 @@
   <header>
     <div class="container hero">
       <div>
-        <div class="kicker">Computer Engineering • Software • Robotics • AI</div>
-        <h1>Hi, I’m Ben Hartline.</h1>
+        <h1>Hi, I’m Ben.</h1>
         <p class="subtitle">
-          I build practical software and systems—robotics/embedded work, Python pipelines, and clean web tools.
-          I like shipping fast and improving until it’s solid.
+          I build solutions that solve real problems. 
         </p>
         <div class="cta">
           <a class="btn primary" href="#projects" data-scroll="#projects">View My Work</a>
-          <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf">Download Resume</a>
+          <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf" target="_blank" rel="noreferrer">Download Resume</a>
           <a class="btn" href="mailto:ben@benhartline.com">ben@benhartline.com</a>
         </div>
       </div>
 
       <div class="card profile">
         <img class="avatar" src="assets/Ben_Headshot.jpg" alt="Ben Hartline headshot" />
-        <div class="mini-links">
-          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-        <p class="section-text">
-          Milford/Cincinnati area • Open to internships/co-ops
-        </p>
       </div>
     </div>
   </header>
@@ -231,19 +233,6 @@
           <p>Hands-on PCB/wiring work plus embedded bring-up for robotics and custom hardware experiments.</p>
           <div class="meta">
             <span class="badge">Embedded</span><span class="badge">PCBs</span><span class="badge">Debugging</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2 class="section-title">Education</h2>
-      <div class="card">
-        <div class="project">
-          <h3>Computer Engineering (B.S.)</h3>
-          <p>Coursework across software, embedded systems, controls, and AI; active in robotics projects and competitions.</p>
-          <div class="meta">
-            <span class="badge">C++</span><span class="badge">Python</span><span class="badge">Controls</span>
           </div>
         </div>
       </div>
@@ -283,6 +272,19 @@
       </div>
     </section>
 
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        <div class="project">
+          <h3>Computer Engineering (B.S.)</h3>
+          <p>Coursework across software, embedded systems, controls, and AI; active in robotics projects and competitions.</p>
+          <div class="meta">
+            <span class="badge">C++</span><span class="badge">Python</span><span class="badge">Controls</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="skills">
       <h2 class="section-title">Skills</h2>
       <div class="card">
@@ -304,11 +306,18 @@
       <h2 class="section-title">Contact</h2>
       <div class="card">
         <p class="section-text">
-          Best way to reach me: <a href="mailto:ben@benhartline.com">ben@benhartline.com</a>
+          I'm always open to ideas, projects, or joining ambitious teams. Please feel free to reach out!
         </p>
         <div class="mini-links" style="margin-top:12px;">
-          <a class="btn" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/ben-hartline/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn primary" href="mailto:ben@benhartline.com">
+            <img class="icon" src="assets/icons/email.png" alt="" aria-hidden="true" />Email
+          </a>
+          <a class="btn primary" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">
+            <img class="icon" src="assets/icons/github.png" alt="" aria-hidden="true" />GitHub
+          </a>
+          <a class="btn primary" href="https://www.linkedin.com/in/ben-hartline/" target="_blank" rel="noreferrer">
+            <img class="icon" src="assets/icons/linkedin.png" alt="" aria-hidden="true" />LinkedIn
+          </a>
         </div>
       </div>
     </section>
@@ -332,3 +341,6 @@
   </script>
 </body>
 </html>
+
+
+
