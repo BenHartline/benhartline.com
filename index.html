@@ -125,7 +125,7 @@
     }
     .mini-links{ display:flex; gap: 10px; flex-wrap: wrap; }
 
-    section{ padding: 22px 0; }
+    section{ padding: 66px 0; }
     .section-title{
       margin: 0 0 10px;
       font-size: 18px;
@@ -163,11 +163,12 @@
       <div class="nav-inner">
         <div class="brand">Ben Hartline</div>
         <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-          <a class="btn" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#about" data-scroll="#about">About</a>
+          <a href="#experience" data-scroll="#experience">Experience</a>
+          <a href="#education" data-scroll="#education">Education</a>
+          <a href="#projects" data-scroll="#projects">Projects</a>
+          <a href="#skills" data-scroll="#skills">Skills</a>
+          <a href="#contact" data-scroll="#contact">Contact</a>
           <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf">Download Resume</a>
         </div>
       </div>
@@ -184,7 +185,7 @@
           I like shipping fast and improving until it’s solid.
         </p>
         <div class="cta">
-          <a class="btn primary" href="#projects">View My Work</a>
+          <a class="btn primary" href="#projects" data-scroll="#projects">View My Work</a>
           <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf">Download Resume</a>
           <a class="btn" href="mailto:ben@benhartline.com">ben@benhartline.com</a>
         </div>
@@ -215,19 +216,35 @@
       </div>
     </section>
 
-    <section id="skills">
-      <h2 class="section-title">Skills</h2>
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
       <div class="card">
-        <p class="section-text">A snapshot of what I use most:</p>
-        <div class="badge-row">
-          <span class="badge">Python</span>
-          <span class="badge">C++</span>
-          <span class="badge">Kotlin Multiplatform</span>
-          <span class="badge">Flutter</span>
-          <span class="badge">Embedded / ADC</span>
-          <span class="badge">Git</span>
-          <span class="badge">Linux / SSH</span>
-          <span class="badge">MoviePy</span>
+        <div class="project">
+          <h3>Robotics Lead · Milford HS Robotics</h3>
+          <p>Built autonomous routines, tuned PID/controls, and integrated sensors for consistent competition runs.</p>
+          <div class="meta">
+            <span class="badge">C++</span><span class="badge">Controls</span><span class="badge">Sensors</span>
+          </div>
+        </div>
+        <div class="project">
+          <h3>Embedded / Hardware Projects</h3>
+          <p>Hands-on PCB/wiring work plus embedded bring-up for robotics and custom hardware experiments.</p>
+          <div class="meta">
+            <span class="badge">Embedded</span><span class="badge">PCBs</span><span class="badge">Debugging</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        <div class="project">
+          <h3>Computer Engineering (B.S.)</h3>
+          <p>Coursework across software, embedded systems, controls, and AI; active in robotics projects and competitions.</p>
+          <div class="meta">
+            <span class="badge">C++</span><span class="badge">Python</span><span class="badge">Controls</span>
+          </div>
         </div>
       </div>
     </section>
@@ -266,6 +283,23 @@
       </div>
     </section>
 
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <p class="section-text">A snapshot of what I use most:</p>
+        <div class="badge-row">
+          <span class="badge">Python</span>
+          <span class="badge">C++</span>
+          <span class="badge">Kotlin Multiplatform</span>
+          <span class="badge">Flutter</span>
+          <span class="badge">Embedded / ADC</span>
+          <span class="badge">Git</span>
+          <span class="badge">Linux / SSH</span>
+          <span class="badge">MoviePy</span>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="card">
@@ -284,6 +318,15 @@
     </footer>
   </main>
 
+  <script>
+    document.querySelectorAll('[data-scroll]').forEach(function(el){
+      el.addEventListener('click', function(evt){
+        evt.preventDefault();
+        var target = document.querySelector(el.getAttribute('data-scroll'));
+        if (target){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
