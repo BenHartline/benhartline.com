@@ -2,80 +2,290 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ben Hartline</title>
+  <meta name="description" content="Ben Hartline — Computer Engineering student focused on software, robotics, and AI." />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --text: #e5e7eb;
+      --muted: rgba(229,231,235,0.72);
+      --border: rgba(255,255,255,0.12);
+      --accent: #60a5fa;
+      --accent2: #a78bfa;
+      --max: 980px;
+      --r: 18px;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 80px 24px;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,0.25), transparent 60%),
+                  radial-gradient(900px 600px at 110% 10%, rgba(167,139,250,0.22), transparent 55%),
+                  var(--bg);
+      color:var(--text);
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width:var(--max); margin:0 auto; padding: 0 20px; }
+    .nav{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,0.65);
+      border-bottom: 1px solid var(--border);
     }
-    h2 {
-      margin-top: 3rem;
-      font-size: 1.5rem;
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
     }
-    p {
+    .brand{ font-weight:700; letter-spacing:0.2px; }
+    .nav-links{ display:flex; gap:18px; align-items:center; }
+    .nav-links a{ color:var(--muted); font-weight:600; font-size: 14px; }
+    .nav-links a:hover{ color: var(--text); }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      font-weight:700; font-size:14px;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+    .btn:active{ transform: translateY(1px); }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#07101f;
+    }
+    .btn.primary:hover{ filter: brightness(1.05); }
+
+    header{ padding: 54px 0 18px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      align-items: center;
+    }
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+      .nav-links{ gap: 12px; flex-wrap: wrap; justify-content:flex-end; }
+    }
+
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
       line-height: 1.6;
-      color: #cbd5f5;
+      max-width: 60ch;
     }
-    a {
-      color: #60a5fa;
-      text-decoration: none;
+    .cta{ display:flex; gap: 12px; flex-wrap: wrap; }
+
+    .card{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,0.03));
+      border-radius: var(--r);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
-    .links a {
-      margin-right: 16px;
+    .profile{
+      display:flex; flex-direction:column; gap:12px;
     }
-    .project {
-      margin-top: 1rem;
+    .avatar{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(120px 120px at 30% 25%, rgba(96,165,250,0.35), transparent 55%),
+        radial-gradient(160px 160px at 70% 70%, rgba(167,139,250,0.28), transparent 55%),
+        rgba(255,255,255,0.04);
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(229,231,235,0.55);
+      font-weight:800;
+      letter-spacing: 1px;
     }
+    .mini-links{ display:flex; gap: 10px; flex-wrap: wrap; }
+
+    section{ padding: 22px 0; }
+    .section-title{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+    .section-text{ margin: 0; color: var(--muted); line-height: 1.7; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 760px){ .grid{ grid-template-columns: 1fr; } }
+
+    .badge-row{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .badge{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .project h3{ margin: 0 0 6px; font-size: 16px; }
+    .project p{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
+    .project .meta{ display:flex; gap:10px; flex-wrap: wrap; }
+    footer{ padding: 30px 0 60px; color: rgba(229,231,235,0.55); font-size: 13px; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ben Hartline</h1>
-    <p>Computer Engineering student focused on software, robotics, and AI.</p>
 
-    <div class="links">
-      <a href="mailto:ben@benhartline.com">Email</a>
-      <a href="https://github.com/BenHartline">GitHub</a>
-      <a href="https://www.linkedin.com/">LinkedIn</a>
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">Ben Hartline</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn primary" href="/resume.pdf">Download Resume</a>
+        </div>
+      </div>
     </div>
-
-    <h2>About</h2>
-    <p>
-      I’m a Computer Engineering student with experience in Python, C++, and
-      full-stack development. I’ve worked on robotics systems, autonomous code,
-      and media pipelines, and I enjoy building fast, practical software.
-    </p>
-
-    <h2>Projects</h2>
-    <div class="project">
-      <strong>Video Generation Pipeline</strong>
-      <p>Python pipeline using MoviePy and ElevenLabs to generate narrated short-form content with subtitles.</p>
-    </div>
-    <div class="project">
-      <strong>Robotics Autonomous Control</strong>
-      <p>Custom C++ PID control and sensor integration for competitive robotics.</p>
-    </div>
-
-    <h2>Experience</h2>
-    <p>Software Engineering Intern · Robot Technician · Engineering Projects</p>
-
-    <h2>Contact</h2>
-    <p>
-      Reach me at <a href="mailto:ben@benhartline.com">ben@benhartline.com</a>
-    </p>
   </div>
+
+  <header>
+    <div class="container hero">
+      <div>
+        <div class="kicker">Computer Engineering • Software • Robotics • AI</div>
+        <h1>Hi, I’m Ben Hartline.</h1>
+        <p class="subtitle">
+          I build practical software and systems—robotics/embedded work, Python pipelines, and clean web tools.
+          I like shipping fast and improving until it’s solid.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View My Work</a>
+          <a class="btn" href="/resume.pdf">Download Resume</a>
+          <a class="btn" href="mailto:ben@benhartline.com">ben@benhartline.com</a>
+        </div>
+      </div>
+
+      <div class="card profile">
+        <div class="avatar">YOUR PHOTO</div>
+        <div class="mini-links">
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <p class="section-text">
+          Milford/Cincinnati area • Open to internships/co-ops
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p class="section-text">
+          I’m a Computer Engineering student with experience across Python, C++, and app/web development.
+          I’ve worked on robotics and autonomous code, and I’ve built a video-generation pipeline using MoviePy
+          and ElevenLabs for narrated short-form content.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <p class="section-text">A snapshot of what I use most:</p>
+        <div class="badge-row">
+          <span class="badge">Python</span>
+          <span class="badge">C++</span>
+          <span class="badge">Kotlin Multiplatform</span>
+          <span class="badge">Flutter</span>
+          <span class="badge">Embedded / ADC</span>
+          <span class="badge">Git</span>
+          <span class="badge">Linux / SSH</span>
+          <span class="badge">MoviePy</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+        <div class="card project">
+          <h3>Video Generation Pipeline</h3>
+          <p>Python pipeline using MoviePy + ElevenLabs to generate narrated shorts with timing/subtitles.</p>
+          <div class="meta">
+            <span class="badge">Python</span><span class="badge">MoviePy</span><span class="badge">ElevenLabs</span>
+          </div>
+        </div>
+        <div class="card project">
+          <h3>Robotics Autonomous Control</h3>
+          <p>Custom PID control + sensing for consistent autonomous performance in competitive robotics.</p>
+          <div class="meta">
+            <span class="badge">C++</span><span class="badge">Controls</span><span class="badge">Sensors</span>
+          </div>
+        </div>
+        <div class="card project">
+          <h3>Custom PCB / Hardware Work</h3>
+          <p>Hands-on experience building and working with PCBs/wiring in real robotics hardware environments.</p>
+          <div class="meta">
+            <span class="badge">Hardware</span><span class="badge">Debugging</span>
+          </div>
+        </div>
+        <div class="card project">
+          <h3>Portfolio (this site)</h3>
+          <p>Deployed on GitHub Pages with Cloudflare DNS; clean, fast, and simple.</p>
+          <div class="meta">
+            <span class="badge">HTML/CSS</span><span class="badge">GitHub Pages</span><span class="badge">Cloudflare</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p class="section-text">
+          Best way to reach me: <a href="mailto:ben@benhartline.com">ben@benhartline.com</a>
+        </p>
+        <div class="mini-links" style="margin-top:12px;">
+          <a class="btn" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Ben Hartline • Built with HTML/CSS
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
