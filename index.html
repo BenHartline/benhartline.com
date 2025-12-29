@@ -182,7 +182,7 @@
       font-size: 14px;
     }
     .about-location::before{
-      content: "📍";
+      content: "Location:";
       font-size: 16px;
     }
     @media (max-width: 760px){
@@ -211,6 +211,65 @@
     .project h3{ margin: 0 0 6px; font-size: 16px; }
     .project p{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
     .project .meta{ display:flex; gap:10px; flex-wrap: wrap; }
+    .experience-list{ display:flex; flex-direction:column; gap: 22px; }
+    .experience-item{
+      display:grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .experience-logo{
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 800;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .experience-logo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9px;
+    }
+    .experience-top{
+      display:flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .experience-role{
+      margin: 0;
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .experience-dates{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .experience-company{
+      margin: 2px 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .experience-points{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .experience-points li{ margin: 0 0 6px; }
+    @media (max-width: 760px){
+      .experience-item{ grid-template-columns: 1fr; }
+      .experience-logo{ width: 52px; height: 52px; }
+    }
     #projects-grid{ grid-template-columns: 1fr; }
     .project-card{
       display:grid;
@@ -400,6 +459,60 @@
         return meta;
       }
 
+      function createExperienceItem(item){
+        var wrapper = document.createElement('div');
+        wrapper.className = 'experience-item';
+
+        var logo = document.createElement('div');
+        logo.className = 'experience-logo';
+        if (item.logo && item.logo.src){
+          var img = document.createElement('img');
+          img.src = item.logo.src;
+          img.alt = item.logo.alt || '';
+          logo.appendChild(img);
+        } else {
+          var initials = (item.company || '').slice(0, 2).toUpperCase();
+          logo.textContent = initials;
+        }
+
+        var body = document.createElement('div');
+        var top = document.createElement('div');
+        top.className = 'experience-top';
+        var role = document.createElement('h3');
+        role.className = 'experience-role';
+        role.textContent = item.role || '';
+        top.appendChild(role);
+        if (item.dates){
+          var dates = document.createElement('div');
+          dates.className = 'experience-dates';
+          dates.textContent = item.dates;
+          top.appendChild(dates);
+        }
+        body.appendChild(top);
+
+        var companyLine = document.createElement('div');
+        companyLine.className = 'experience-company';
+        var companyText = item.company || '';
+        if (item.location){ companyText += ' · ' + item.location; }
+        companyLine.textContent = companyText;
+        body.appendChild(companyLine);
+
+        if (Array.isArray(item.points) && item.points.length){
+          var list = document.createElement('ul');
+          list.className = 'experience-points';
+          item.points.forEach(function(point){
+            var li = document.createElement('li');
+            li.textContent = point;
+            list.appendChild(li);
+          });
+          body.appendChild(list);
+        }
+
+        wrapper.appendChild(logo);
+        wrapper.appendChild(body);
+        return wrapper;
+      }
+
       function createCarousel(images, title){
         var media = document.createElement('div');
         media.className = 'project-media';
@@ -552,7 +665,14 @@
         });
       }
 
-      renderList(data.experience && data.experience.items, 'experience-content');
+      var experienceContent = document.getElementById('experience-content');
+      if (experienceContent && data.experience && Array.isArray(data.experience.items)){
+        experienceContent.innerHTML = '';
+        experienceContent.className = 'experience-list';
+        data.experience.items.forEach(function(item){
+          experienceContent.appendChild(createExperienceItem(item));
+        });
+      }
 
       var projectsGrid = document.getElementById('projects-grid');
       if (projectsGrid && data.projects && Array.isArray(data.projects.items)){

@@ -45,14 +45,37 @@ window.siteData = {
     title: 'Experience',
     items: [
       {
-        title: 'Software Engineering Intern',
-        description: 'Built autonomous routines, tuned PID/controls, and integrated sensors for consistent competition runs.',
-        badges: ['C++', 'Controls', 'Sensors'],
+        role: 'Robot Technician',
+        company: 'Starship Technologies',
+        location: 'Lexington, KY',
+        dates: 'Feb 2024 — Present',
+        points: [
+          'Diagnosed, repaired, and maintained autonomous delivery robots to ensure minimal downtime.',
+          'Managed preventative maintenance and parts inventory for continuous fleet operations.',
+          'Part-time seasonal worker during the school year.',
+        ],
       },
       {
-        title: 'Embedded / Hardware Projects',
-        description: 'Hands-on PCB/wiring work plus embedded bring-up for robotics and custom hardware experiments.',
-        badges: ['Embedded', 'PCBs', 'Debugging'],
+        role: 'Software Engineer Intern',
+        company: 'Cintas',
+        location: 'Mason, OH',
+        dates: 'May 2025 — Aug 2025',
+        points: [
+          'Implemented a local logging library and database enhancements for a new internal mobile app, including automated log uploads to Azure.',
+          'Developed a Google Maps API feature to identify optimal sales prospects along user routes and improved UI readability with new route selection options.',
+          'Collaborated through daily stand-ups using Git for version control.',
+        ],
+      },
+      {
+        role: 'IT / Software Engineering Intern',
+        company: 'Cintas',
+        location: 'Mason, OH',
+        dates: 'May 2024 — Aug 2024',
+        points: [
+          'Led development and testing of a new internal mobile app proof of concept.',
+          'Collaborated with software engineers and field employees to gather feedback and refine requirements.',
+          'Served as a subject matter expert, advising on next steps in app development.',
+        ],
       },
     ],
   },
