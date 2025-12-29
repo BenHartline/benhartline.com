@@ -292,12 +292,29 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      position: relative;
     }
     .carousel-img{
       width: 100%;
       height: 100%;
       object-fit: cover;
       display:block;
+    }
+    .carousel-caption{
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(8,12,20,0), rgba(8,12,20,0.72));
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .carousel-slide:hover .carousel-caption,
+    .carousel-slide:focus-within .carousel-caption{
+      opacity: 1;
     }
     .carousel-placeholder{
       width: 100%;
@@ -349,6 +366,13 @@
       z-index: 200;
     }
     .lightbox.open{ display: flex; }
+    .lightbox-content{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      max-width: 100%;
+    }
     .lightbox-img{
       max-width: min(1200px, 92vw);
       max-height: 88vh;
@@ -357,6 +381,12 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.45);
       background: #0b1220;
       object-fit: contain;
+    }
+    .lightbox-caption{
+      max-width: min(1000px, 88vw);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
     }
     .lightbox-close{
       position: absolute;

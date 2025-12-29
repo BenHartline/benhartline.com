@@ -93,7 +93,10 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">X</button>
-    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
   </div>
 
   <script src="assets/site-data.js"></script>
@@ -126,12 +129,18 @@
 
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = document.getElementById('lightbox-img');
+      var lightboxCaption = document.getElementById('lightbox-caption');
       var lightboxClose = document.getElementById('lightbox-close');
 
-      function openLightbox(src, alt){
+      function openLightbox(src, alt, caption){
         if (!src || !lightbox || !lightboxImg){ return; }
         lightboxImg.src = src;
         lightboxImg.alt = alt || '';
+        if (lightboxCaption){
+          var captionText = caption || alt || '';
+          lightboxCaption.textContent = captionText;
+          lightboxCaption.style.display = captionText ? 'block' : 'none';
+        }
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -142,14 +151,21 @@
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden', 'true');
         lightboxImg.src = '';
+        if (lightboxCaption){
+          lightboxCaption.textContent = '';
+          lightboxCaption.style.display = 'none';
+        }
         document.body.style.overflow = '';
       }
 
       function attachLightbox(img){
         if (!img || !img.src){ return; }
+        var caption = img.getAttribute('data-caption') || img.alt || '';
+        if (caption){ img.setAttribute('title', caption); }
         img.classList.add('lightbox-target');
         img.addEventListener('click', function(){
-          openLightbox(img.src, img.alt);
+          var caption = img.getAttribute('data-caption') || '';
+          openLightbox(img.src, img.alt, caption);
         });
       }
 
@@ -202,7 +218,7 @@
         var companyLine = document.createElement('div');
         companyLine.className = 'experience-company';
         var companyText = item.company || '';
-        if (item.location){ companyText += ' Â· ' + item.location; }
+        if (item.location){ companyText += ' - ' + item.location; }
         companyLine.textContent = companyText;
         body.appendChild(companyLine);
 
@@ -238,6 +254,14 @@
             image.src = img.src || '';
             image.alt = img.alt || title || '';
             slide.appendChild(image);
+            var captionText = img.caption || img.alt || '';
+            if (captionText){
+              image.setAttribute('data-caption', captionText);
+              var caption = document.createElement('div');
+              caption.className = 'carousel-caption';
+              caption.textContent = captionText;
+              slide.appendChild(caption);
+            }
             attachLightbox(image);
             slides.push(slide);
             track.appendChild(slide);
@@ -266,7 +290,7 @@
           prev.className = 'carousel-arrow left';
           prev.type = 'button';
           prev.setAttribute('aria-label', 'Previous image');
-          prev.textContent = 'â€¹';
+          prev.textContent = '<';
           prev.addEventListener('click', function(){
             index = (index - 1 + slides.length) % slides.length;
             update();
@@ -275,7 +299,7 @@
           next.className = 'carousel-arrow right';
           next.type = 'button';
           next.setAttribute('aria-label', 'Next image');
-          next.textContent = 'â€º';
+          next.textContent = '>';
           next.addEventListener('click', function(){
             index = (index + 1) % slides.length;
             update();

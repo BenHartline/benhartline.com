@@ -48,7 +48,11 @@ window.siteData = {
         role: 'Robot Technician',
         company: 'Starship Technologies',
         location: 'Lexington, KY',
-        dates: 'Feb 2024 — Present',
+        dates: 'Feb 2024 - Present',
+        logo: {
+          src: 'assets/images/starshipTechnologiesLogo.jpg',
+          alt: 'Starship Technologies logo',
+        },
         points: [
           'Diagnosed, repaired, and maintained autonomous delivery robots to ensure minimal downtime.',
           'Managed preventative maintenance and parts inventory for continuous fleet operations.',
@@ -60,6 +64,10 @@ window.siteData = {
         company: 'Cintas',
         location: 'Mason, OH',
         dates: 'May 2025 — Aug 2025',
+        logo: {
+          src: 'assets/images/cintasLogo.jpg',
+          alt: 'Cintas logo',
+        },
         points: [
           'Implemented a local logging library and database enhancements for a new internal mobile app, including automated log uploads to Azure.',
           'Developed a Google Maps API feature to identify optimal sales prospects along user routes and improved UI readability with new route selection options.',
@@ -71,6 +79,10 @@ window.siteData = {
         company: 'Cintas',
         location: 'Mason, OH',
         dates: 'May 2024 — Aug 2024',
+        logo: {
+          src: 'assets/images/cintasLogo.jpg',
+          alt: 'Cintas logo',
+        },
         points: [
           'Led development and testing of a new internal mobile app proof of concept.',
           'Collaborated with software engineers and field employees to gather feedback and refine requirements.',
@@ -85,6 +97,9 @@ window.siteData = {
       {
         title: 'Video Generation Pipeline',
         description: 'Python pipeline using MoviePy + ElevenLabs to generate narrated shorts with timing/subtitles.',
+        images: [
+          { src: 'assets/images/100kSubs.jpg', alt: '100k subscribers milestone', caption: '100k test' },
+        ],
         badges: ['Python', 'MoviePy', 'ElevenLabs'],
       },
       {
