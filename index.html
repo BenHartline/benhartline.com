@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ben Hartline</title>
-  <meta name="description" content="Ben Hartline — Computer Engineering student focused on software, robotics, and AI." />
+  <title></title>
+  <meta name="description" content="" />
   <style>
     :root{
       --bg: #0b1220;
@@ -138,7 +138,11 @@
     }
     .mini-links{ display:flex; gap: 10px; flex-wrap: wrap; }
 
-    section{ padding: 66px 0; }
+    section{ padding: 33px 0; }
+    #about{
+      padding-top: 198px;
+      padding-bottom: 33px;
+    }
     .section-title{
       margin: 0 0 10px;
       font-size: 18px;
@@ -174,14 +178,8 @@
   <div class="nav">
     <div class="container">
       <div class="nav-inner">
-        <a class="brand" href="#" data-scroll="body">Ben Hartline</a>
-        <div class="nav-links">
-          <a href="#about" data-scroll="#about">About</a>
-          <a href="#experience" data-scroll="#experience">Experience</a>
-          <a href="#projects" data-scroll="#projects">Projects</a>
-          <a href="#contact" data-scroll="#contact">Contact</a>
-          <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf" target="_blank" rel="noreferrer">Download Resume</a>
-        </div>
+        <a class="brand" id="brand" href="#" data-scroll="body"></a>
+        <div class="nav-links" id="nav-links"></div>
       </div>
     </div>
   </div>
@@ -189,158 +187,252 @@
   <header>
     <div class="container hero">
       <div>
-        <h1>Hi, I’m Ben.</h1>
-        <p class="subtitle">
-          I build solutions that solve real problems. 
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#projects" data-scroll="#projects">View My Work</a>
-          <a class="btn primary" href="assets/Ben_Hartline_Resume_Spring_2026.pdf" target="_blank" rel="noreferrer">Download Resume</a>
-          <a class="btn" href="mailto:ben@benhartline.com">ben@benhartline.com</a>
-        </div>
+        <h1 id="hero-title"></h1>
+        <p class="subtitle" id="hero-subtitle"></p>
+        <div class="cta" id="hero-cta"></div>
       </div>
 
       <div class="card profile">
-        <img class="avatar" src="assets/Ben_Headshot.jpg" alt="Ben Hartline headshot" />
+        <img class="avatar" id="avatar" src="" alt="" />
       </div>
     </div>
   </header>
 
   <main class="container">
     <section id="about">
-      <h2 class="section-title">About</h2>
+      <h2 class="section-title" id="about-title"></h2>
       <div class="card">
-        <p class="section-text">
-          I’m a Computer Engineering student with experience across Python, C++, and app/web development.
-          I’ve worked on robotics and autonomous code, and I’ve built a video-generation pipeline using MoviePy
-          and ElevenLabs for narrated short-form content.
-        </p>
+        <p class="section-text" id="about-text"></p>
       </div>
     </section>
 
     <section id="experience">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title" id="experience-title"></h2>
       <div class="card">
-        <div class="project">
-          <h3>Robotics Lead · Milford HS Robotics</h3>
-          <p>Built autonomous routines, tuned PID/controls, and integrated sensors for consistent competition runs.</p>
-          <div class="meta">
-            <span class="badge">C++</span><span class="badge">Controls</span><span class="badge">Sensors</span>
-          </div>
-        </div>
-        <div class="project">
-          <h3>Embedded / Hardware Projects</h3>
-          <p>Hands-on PCB/wiring work plus embedded bring-up for robotics and custom hardware experiments.</p>
-          <div class="meta">
-            <span class="badge">Embedded</span><span class="badge">PCBs</span><span class="badge">Debugging</span>
-          </div>
-        </div>
+        <div id="experience-content"></div>
       </div>
     </section>
 
     <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid">
-        <div class="card project">
-          <h3>Video Generation Pipeline</h3>
-          <p>Python pipeline using MoviePy + ElevenLabs to generate narrated shorts with timing/subtitles.</p>
-          <div class="meta">
-            <span class="badge">Python</span><span class="badge">MoviePy</span><span class="badge">ElevenLabs</span>
-          </div>
-        </div>
-        <div class="card project">
-          <h3>Robotics Autonomous Control</h3>
-          <p>Custom PID control + sensing for consistent autonomous performance in competitive robotics.</p>
-          <div class="meta">
-            <span class="badge">C++</span><span class="badge">Controls</span><span class="badge">Sensors</span>
-          </div>
-        </div>
-        <div class="card project">
-          <h3>Custom PCB / Hardware Work</h3>
-          <p>Hands-on experience building and working with PCBs/wiring in real robotics hardware environments.</p>
-          <div class="meta">
-            <span class="badge">Hardware</span><span class="badge">Debugging</span>
-          </div>
-        </div>
-        <div class="card project">
-          <h3>Portfolio (this site)</h3>
-          <p>Deployed on GitHub Pages with Cloudflare DNS; clean, fast, and simple.</p>
-          <div class="meta">
-            <span class="badge">HTML/CSS</span><span class="badge">GitHub Pages</span><span class="badge">Cloudflare</span>
-          </div>
-        </div>
-      </div>
+      <h2 class="section-title" id="projects-title"></h2>
+      <div class="grid" id="projects-grid"></div>
     </section>
 
     <section id="education">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title" id="education-title"></h2>
       <div class="card">
-        <div class="project">
-          <h3>Computer Engineering (B.S.)</h3>
-          <p>Coursework across software, embedded systems, controls, and AI; active in robotics projects and competitions.</p>
-          <div class="meta">
-            <span class="badge">C++</span><span class="badge">Python</span><span class="badge">Controls</span>
-          </div>
-        </div>
+        <div id="education-content"></div>
       </div>
     </section>
 
     <section id="skills">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title" id="skills-title"></h2>
       <div class="card">
-        <p class="section-text">A snapshot of what I use most:</p>
-        <div class="badge-row">
-          <span class="badge">Python</span>
-          <span class="badge">C++</span>
-          <span class="badge">Kotlin Multiplatform</span>
-          <span class="badge">Flutter</span>
-          <span class="badge">Embedded / ADC</span>
-          <span class="badge">Git</span>
-          <span class="badge">Linux / SSH</span>
-          <span class="badge">MoviePy</span>
-        </div>
+        <p class="section-text" id="skills-intro"></p>
+        <div class="badge-row" id="skills-badges"></div>
       </div>
     </section>
 
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
+      <h2 class="section-title" id="contact-title"></h2>
       <div class="card">
-        <p class="section-text">
-          I'm always open to ideas, projects, or joining ambitious teams. Please feel free to reach out!
-        </p>
-        <div class="mini-links" style="margin-top:12px;">
-          <a class="btn primary" href="mailto:ben@benhartline.com">
-            <img class="icon" src="assets/icons/email.png" alt="" aria-hidden="true" />Email
-          </a>
-          <a class="btn primary" href="https://github.com/BenHartline" target="_blank" rel="noreferrer">
-            <img class="icon" src="assets/icons/github.png" alt="" aria-hidden="true" />GitHub
-          </a>
-          <a class="btn primary" href="https://www.linkedin.com/in/ben-hartline/" target="_blank" rel="noreferrer">
-            <img class="icon" src="assets/icons/linkedin.png" alt="" aria-hidden="true" />LinkedIn
-          </a>
-        </div>
+        <p class="section-text" id="contact-text"></p>
+        <div class="mini-links" id="contact-links" style="margin-top:12px;"></div>
       </div>
     </section>
 
     <footer>
-      © <span id="y"></span> Ben Hartline • Built with HTML/CSS
+      <span id="footer-prefix"></span>
+      <span id="y"></span>
+      <span id="footer-owner"></span>
+      <span id="footer-note"></span>
     </footer>
   </main>
 
+  <script src="assets/site-data.js"></script>
   <script>
-    document.querySelectorAll('[data-scroll]').forEach(function(el){
-      el.addEventListener('click', function(evt){
-        evt.preventDefault();
-        var target = document.querySelector(el.getAttribute('data-scroll'));
-        if (target){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    (function(){
+      var data = window.siteData || {};
+
+      function setText(selector, text){
+        if (!text){ return; }
+        var el = document.querySelector(selector);
+        if (el){ el.textContent = text; }
+      }
+
+      function createBadge(text){
+        var span = document.createElement('span');
+        span.className = 'badge';
+        span.textContent = text;
+        return span;
+      }
+
+      function createMetaBadges(badges){
+        if (!Array.isArray(badges) || !badges.length){ return null; }
+        var meta = document.createElement('div');
+        meta.className = 'meta';
+        badges.forEach(function(badge){
+          meta.appendChild(createBadge(badge));
+        });
+        return meta;
+      }
+
+      if (data.meta){
+        if (data.meta.title){ document.title = data.meta.title; }
+        if (data.meta.description){
+          var desc = document.querySelector('meta[name="description"]');
+          if (desc){ desc.setAttribute('content', data.meta.description); }
+        }
+      }
+
+      var brand = document.getElementById('brand');
+      if (brand && data.brand){
+        brand.textContent = data.brand.name || '';
+        var brandTarget = data.brand.scrollTarget || data.brand.href || '#';
+        brand.setAttribute('href', brandTarget);
+        if (data.brand.scrollTarget){ brand.setAttribute('data-scroll', data.brand.scrollTarget); }
+      }
+
+      var navLinks = document.getElementById('nav-links');
+      if (navLinks && Array.isArray(data.nav)){
+        navLinks.innerHTML = '';
+        data.nav.forEach(function(link){
+          var a = document.createElement('a');
+          a.textContent = link.label;
+          var href = link.target || '#';
+          a.setAttribute('href', href);
+          if (link.scrollTarget){ a.setAttribute('data-scroll', link.scrollTarget); }
+          if (link.external){ a.target = '_blank'; a.rel = 'noreferrer'; }
+          if (link.style === 'primary'){ a.classList.add('btn', 'primary'); }
+          navLinks.appendChild(a);
+        });
+      }
+
+      setText('#hero-title', data.hero && data.hero.title);
+      setText('#hero-subtitle', data.hero && data.hero.subtitle);
+      var cta = document.getElementById('hero-cta');
+      if (cta && data.hero && Array.isArray(data.hero.ctas)){
+        cta.innerHTML = '';
+        data.hero.ctas.forEach(function(item){
+          var a = document.createElement('a');
+          a.textContent = item.label;
+          a.href = item.target || '#';
+          a.classList.add('btn');
+          if (item.style === 'primary'){ a.classList.add('primary'); }
+          if (item.external){ a.target = '_blank'; a.rel = 'noreferrer'; }
+          if (item.type === 'scroll'){ a.setAttribute('data-scroll', item.target); }
+          cta.appendChild(a);
+        });
+      }
+      var avatar = document.getElementById('avatar');
+      if (avatar && data.hero && data.hero.avatar){
+        avatar.src = data.hero.avatar.src || '';
+        avatar.alt = data.hero.avatar.alt || '';
+      }
+
+      setText('#about-title', data.about && data.about.title);
+      setText('#about-text', data.about && data.about.text);
+      setText('#experience-title', data.experience && data.experience.title);
+      setText('#projects-title', data.projects && data.projects.title);
+      setText('#education-title', data.education && data.education.title);
+
+      function renderList(items, containerId){
+        var container = document.getElementById(containerId);
+        if (!container || !Array.isArray(items)){ return; }
+        container.innerHTML = '';
+        items.forEach(function(item){
+          var wrapper = document.createElement('div');
+          wrapper.className = 'project';
+          var h3 = document.createElement('h3');
+          h3.textContent = item.title || '';
+          wrapper.appendChild(h3);
+          if (item.description){
+            var p = document.createElement('p');
+            p.textContent = item.description;
+            wrapper.appendChild(p);
+          }
+          var meta = createMetaBadges(item.badges);
+          if (meta){ wrapper.appendChild(meta); }
+          container.appendChild(wrapper);
+        });
+      }
+
+      renderList(data.experience && data.experience.items, 'experience-content');
+
+      var projectsGrid = document.getElementById('projects-grid');
+      if (projectsGrid && data.projects && Array.isArray(data.projects.items)){
+        projectsGrid.innerHTML = '';
+        data.projects.items.forEach(function(item){
+          var card = document.createElement('div');
+          card.className = 'card project';
+          var h3 = document.createElement('h3');
+          h3.textContent = item.title || '';
+          card.appendChild(h3);
+          if (item.description){
+            var p = document.createElement('p');
+            p.textContent = item.description;
+            card.appendChild(p);
+          }
+          var meta = createMetaBadges(item.badges);
+          if (meta){ card.appendChild(meta); }
+          projectsGrid.appendChild(card);
+        });
+      }
+
+      renderList(data.education && data.education.items, 'education-content');
+
+      setText('#skills-title', data.skills && data.skills.title);
+      setText('#skills-intro', data.skills && data.skills.intro);
+      var skills = document.getElementById('skills-badges');
+      if (skills && data.skills && Array.isArray(data.skills.items)){
+        skills.innerHTML = '';
+        data.skills.items.forEach(function(skill){
+          skills.appendChild(createBadge(skill));
+        });
+      }
+
+      setText('#contact-title', data.contact && data.contact.title);
+      setText('#contact-text', data.contact && data.contact.text);
+      var contactLinks = document.getElementById('contact-links');
+      if (contactLinks && data.contact && Array.isArray(data.contact.links)){
+        contactLinks.innerHTML = '';
+        data.contact.links.forEach(function(link){
+          var a = document.createElement('a');
+          a.className = 'btn primary';
+          a.href = link.href || '#';
+          if (link.external){ a.target = '_blank'; a.rel = 'noreferrer'; }
+          var img = document.createElement('img');
+          img.className = 'icon';
+          img.src = link.icon || '';
+          img.alt = '';
+          img.setAttribute('aria-hidden', 'true');
+          a.appendChild(img);
+          var label = document.createElement('span');
+          label.textContent = link.label || '';
+          a.appendChild(label);
+          contactLinks.appendChild(a);
+        });
+      }
+
+      setText('#footer-prefix', data.footer && data.footer.prefix);
+      setText('#footer-owner', data.footer && data.footer.owner);
+      setText('#footer-note', data.footer && data.footer.note);
+
+      document.querySelectorAll('[data-scroll]').forEach(function(el){
+        el.addEventListener('click', function(evt){
+          var targetSelector = el.getAttribute('data-scroll');
+          if (!targetSelector){ return; }
+          var target = document.querySelector(targetSelector);
+          if (target){
+            evt.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
       });
-    });
-  </script>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+
+      var year = document.getElementById('y');
+      if (year){ year.textContent = new Date().getFullYear(); }
+    })();
   </script>
 </body>
 </html>
-
-
-
