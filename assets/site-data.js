@@ -58,6 +58,10 @@ window.siteData = {
       {
         title: 'Robotics Autonomous Control',
         description: 'Custom PID control + sensing for consistent autonomous performance in competitive robotics.',
+        images: [
+          { src: 'assets/images/MallOfAmericaSignatureEventWin.jpg', alt: 'Mall of America Signature Event win' },
+          { src: 'assets/images/SpeedwaySignatureEventWin.jpg', alt: 'Speedway Signature Event win' },
+        ],
         badges: ['C++', 'Controls', 'Sensors'],
       },
       {

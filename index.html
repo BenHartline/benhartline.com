@@ -170,6 +170,80 @@
     .project h3{ margin: 0 0 6px; font-size: 16px; }
     .project p{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
     .project .meta{ display:flex; gap:10px; flex-wrap: wrap; }
+    #projects-grid{ grid-template-columns: 1fr; }
+    .project-card{
+      display:grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .project-card h3{ margin: 0 0 6px; font-size: 16px; }
+    .project-card p{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
+    .project-media{
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+      min-height: 200px;
+    }
+    .carousel-track{
+      display:flex;
+      height: 100%;
+      transition: transform .35s ease;
+    }
+    .carousel-slide{
+      min-width: 100%;
+      height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .carousel-img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+    }
+    .carousel-placeholder{
+      width: 100%;
+      height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background:
+        radial-gradient(220px 180px at 20% 25%, rgba(96,165,250,0.25), transparent 60%),
+        radial-gradient(260px 180px at 80% 70%, rgba(167,139,250,0.2), transparent 55%),
+        rgba(255,255,255,0.03);
+    }
+    .carousel-arrow{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(11,18,32,0.65);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease;
+    }
+    .carousel-arrow:hover{ background: rgba(11,18,32,0.85); }
+    .carousel-arrow:active{ transform: translateY(-50%) scale(0.98); }
+    .carousel-arrow.left{ left: 10px; }
+    .carousel-arrow.right{ right: 10px; }
+    .project-body h3{ margin-top: 0; }
+    @media (max-width: 860px){
+      .project-card{ grid-template-columns: 1fr; }
+      .project-media{ min-height: 180px; }
+    }
     footer{ padding: 30px 0 60px; color: rgba(229,231,235,0.55); font-size: 13px; }
   </style>
 </head>
@@ -277,6 +351,70 @@
         return meta;
       }
 
+      function createCarousel(images, title){
+        var media = document.createElement('div');
+        media.className = 'project-media';
+        var track = document.createElement('div');
+        track.className = 'carousel-track';
+        var slides = [];
+
+        if (Array.isArray(images) && images.length){
+          images.forEach(function(img){
+            var slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            var image = document.createElement('img');
+            image.className = 'carousel-img';
+            image.src = img.src || '';
+            image.alt = img.alt || title || '';
+            slide.appendChild(image);
+            slides.push(slide);
+            track.appendChild(slide);
+          });
+        } else {
+          for (var i = 0; i < 2; i++){
+            var placeholder = document.createElement('div');
+            placeholder.className = 'carousel-slide';
+            var inner = document.createElement('div');
+            inner.className = 'carousel-placeholder';
+            inner.textContent = 'Project Preview';
+            placeholder.appendChild(inner);
+            slides.push(placeholder);
+            track.appendChild(placeholder);
+          }
+        }
+
+        media.appendChild(track);
+
+        if (slides.length > 1){
+          var index = 0;
+          function update(){
+            track.style.transform = 'translateX(' + (-index * 100) + '%)';
+          }
+          var prev = document.createElement('button');
+          prev.className = 'carousel-arrow left';
+          prev.type = 'button';
+          prev.setAttribute('aria-label', 'Previous image');
+          prev.textContent = '‹';
+          prev.addEventListener('click', function(){
+            index = (index - 1 + slides.length) % slides.length;
+            update();
+          });
+          var next = document.createElement('button');
+          next.className = 'carousel-arrow right';
+          next.type = 'button';
+          next.setAttribute('aria-label', 'Next image');
+          next.textContent = '›';
+          next.addEventListener('click', function(){
+            index = (index + 1) % slides.length;
+            update();
+          });
+          media.appendChild(prev);
+          media.appendChild(next);
+        }
+
+        return media;
+      }
+
       if (data.meta){
         if (data.meta.title){ document.title = data.meta.title; }
         if (data.meta.description){
@@ -364,17 +502,21 @@
         projectsGrid.innerHTML = '';
         data.projects.items.forEach(function(item){
           var card = document.createElement('div');
-          card.className = 'card project';
+          card.className = 'card project-card';
+          card.appendChild(createCarousel(item.images, item.title));
+          var body = document.createElement('div');
+          body.className = 'project-body';
           var h3 = document.createElement('h3');
           h3.textContent = item.title || '';
-          card.appendChild(h3);
+          body.appendChild(h3);
           if (item.description){
             var p = document.createElement('p');
             p.textContent = item.description;
-            card.appendChild(p);
+            body.appendChild(p);
           }
           var meta = createMetaBadges(item.badges);
-          if (meta){ card.appendChild(meta); }
+          if (meta){ body.appendChild(meta); }
+          card.appendChild(body);
           projectsGrid.appendChild(card);
         });
       }
