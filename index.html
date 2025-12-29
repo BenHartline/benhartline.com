@@ -149,6 +149,47 @@
       letter-spacing: 0.2px;
     }
     .section-text{ margin: 0; color: var(--muted); line-height: 1.7; }
+    .about-card{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .about-photo{
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.35);
+      object-fit: cover;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+    }
+    .about-name{
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.2px;
+    }
+    .about-title{
+      margin: 6px 0 8px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .about-location{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .about-location::before{
+      content: "📍";
+      font-size: 16px;
+    }
+    @media (max-width: 760px){
+      .about-card{ grid-template-columns: 1fr; text-align: center; }
+      .about-photo{ margin: 0 auto; }
+      .about-location{ justify-content: center; }
+    }
 
     .grid{
       display:grid;
@@ -276,7 +317,15 @@
     <section id="about">
       <h2 class="section-title" id="about-title"></h2>
       <div class="card">
-        <p class="section-text" id="about-text"></p>
+        <div class="about-card">
+          <img class="about-photo" id="about-photo" src="" alt="" />
+          <div>
+            <h3 class="about-name" id="about-name"></h3>
+            <div class="about-title" id="about-role"></div>
+            <div class="about-location" id="about-location"></div>
+            <p class="section-text" id="about-text" style="margin-top:12px;"></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -470,6 +519,14 @@
 
       setText('#about-title', data.about && data.about.title);
       setText('#about-text', data.about && data.about.text);
+      setText('#about-name', data.about && data.about.profile && data.about.profile.name);
+      setText('#about-role', data.about && data.about.profile && data.about.profile.role);
+      setText('#about-location', data.about && data.about.profile && data.about.profile.location);
+      var aboutPhoto = document.getElementById('about-photo');
+      if (aboutPhoto && data.about && data.about.profile && data.about.profile.photo){
+        aboutPhoto.src = data.about.profile.photo.src || '';
+        aboutPhoto.alt = data.about.profile.photo.alt || '';
+      }
       setText('#experience-title', data.experience && data.experience.title);
       setText('#projects-title', data.projects && data.projects.title);
       setText('#education-title', data.education && data.education.title);

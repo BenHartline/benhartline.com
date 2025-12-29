@@ -30,6 +30,15 @@ window.siteData = {
   },
   about: {
     title: 'About',
+    profile: {
+      name: 'Ben Hartline',
+      role: 'Computer Engineering, Computer Science, & Artificial Intelligence student at UKY',
+      location: 'Lexington, KY',
+      photo: {
+        src: 'assets/Ben_Headshot.jpg',
+        alt: 'Ben Hartline headshot',
+      },
+    },
     text: "I'm a Computer Engineering student with experience across Python, C++, and app/web development. I've worked on robotics and autonomous code, and I've built a video-generation pipeline using MoviePy and ElevenLabs for narrated short-form content.",
   },
   experience: {
