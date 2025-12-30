@@ -289,6 +289,13 @@
     }
     .project-card h3{ margin: 0 0 6px; font-size: 16px; }
     .project-card p{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
+    .project-points{
+      margin: 0 0 10px;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .project-points li{ margin: 0 0 6px; }
     .project-media{
       position: relative;
       border-radius: 14px;

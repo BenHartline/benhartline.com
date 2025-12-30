@@ -450,6 +450,16 @@
             p.textContent = item.description;
             body.appendChild(p);
           }
+          if (Array.isArray(item.points) && item.points.length){
+            var list = document.createElement('ul');
+            list.className = 'project-points';
+            item.points.forEach(function(point){
+              var li = document.createElement('li');
+              li.textContent = point;
+              list.appendChild(li);
+            });
+            body.appendChild(list);
+          }
           var meta = createMetaBadges(item.badges);
           if (meta){ body.appendChild(meta); }
           card.appendChild(body);

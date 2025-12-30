@@ -29,11 +29,11 @@ window.siteData = {
     ],
   },
   about: {
-    title: 'About',
+    title: 'About Me',
     profile: {
       name: 'Ben Hartline',
-      role: 'Computer Engineering, Computer Science, & Artificial Intelligence student at UKY',
-      location: 'Lexington, KY',
+      role: 'Hi! My name is Ben, I am studying Computer Engineering, Computer Science, & AI at the University of Kentucky.',
+      location: '📍Lexington, KY & Cincinnati, OH',
       photo: {
         src: 'assets/Ben_Headshot.jpg',
         alt: 'Ben Hartline headshot',
@@ -101,6 +101,12 @@ window.siteData = {
           { src: 'assets/images/100kSubs.jpg', alt: '100k subscribers milestone', caption: '100k test' },
         ],
         badges: ['Python', 'MoviePy', 'ElevenLabs'],
+        points: [
+          'Developed a Python-based video generation pipeline using MoviePy and API integrations to dynamically create short-form videos.',
+          'Implemented structured data logging by exporting video metadata and performance metrics to Excel for analysis and content optimization.',
+          'Scaled the system to produce viral content, contributing to 700M+ views and 200K+ subscribers across all platforms.',
+          'Continuously updated and optimized the codebase to adapt to evolving social media algorithms, formats, and trends for maximum engagement.',
+        ],
       },
       {
         title: 'Robotics Autonomous Control',
@@ -112,14 +118,17 @@ window.siteData = {
         badges: ['C++', 'Controls', 'Sensors'],
       },
       {
-        title: 'Custom PCB / Hardware Work',
-        description: 'Hands-on experience building and working with PCBs/wiring in real robotics hardware environments.',
-        badges: ['Hardware', 'Debugging'],
-      },
-      {
-        title: 'Portfolio (this site)',
-        description: 'Deployed on GitHub Pages with Cloudflare DNS; clean, fast, and simple.',
-        badges: ['HTML/CSS', 'GitHub Pages', 'Cloudflare'],
+        title: 'Crypto Mining PC',
+        description: 'Custom Ethereum mining rig built and operated for performance and efficiency.',
+        images: [
+          { src: 'assets/images/MiningPC.jpg', alt: 'Crypto Mining PC' },
+        ],
+        badges: ['Hardware', 'GPU Tuning', 'Ethereum'],
+        points: [
+          'Researched, built, and maintained a custom Ethereum mining PC, achieving ~99% uptime through active monitoring and tuning.',
+          'Optimized GPU performance by overclocking for higher hashrate and undervolting to reduce power costs, mining until Ethereum\'s transition to proof of stake.',
+          'Fully recouped hardware costs and ultimately sold the system, netting approximately $1,000 in profit.',
+        ],
       },
       {
         title: 'Portfolio (this site)',
