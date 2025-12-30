@@ -114,8 +114,18 @@ window.siteData = {
         images: [
           { src: 'assets/images/MallOfAmericaSignatureEventWin.jpg', alt: 'Mall of America Signature Event win' },
           { src: 'assets/images/SpeedwaySignatureEventWin.jpg', alt: 'Speedway Signature Event win' },
+          { src: 'assets/images/Team&AlliancePartnerOnSage.png', alt: 'Team and alliance partner on stage' },
+          { src: 'assets/images/2022WorldChamps.jpg', alt: '2022 World Championship' },
+          { src: 'assets/images/WinMoment2022.jpg', alt: '2022 win moment' },
+          { src: 'assets/images/WorldsQualMatch.jpg', alt: 'Worlds qualification match' },
         ],
         badges: ['C++', 'Controls', 'Sensors'],
+        points: [
+          'VEX Robotics World Champion (2022) — #1 out of ~20,000 teams worldwide; designed, built, programmed, tested, and drove competition robots using a rigorous engineering design process while collaborating at the highest competitive level.',
+          'Co-founded and led a competitive VEX robotics team; owned full robot lifecycle (design, CAD, programming, documentation, driving) and mentored 2 local middle-school teams, plus supported others at competitions and through online forums.',
+          'Record-setting season (single year): 13 World Championship qualifications (most ever) and longest win streak in VEX history.',
+          'Season achievements: 42 total awards including 14x Tournament Champion, 11x Excellence Award, 10x Robot Skills Champion, Think Awards, CAD/Onshape awards, Community Service Google Award, and multiple finals placements.',
+        ],
       },
       {
         title: 'Crypto Mining PC',
