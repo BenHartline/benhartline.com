@@ -335,9 +335,13 @@
         var index = 0;
         var groupId = null;
         var groupItems = null;
+        media._carouselRatios = [];
+        media._carouselIndex = 0;
 
         function update(){
           track.style.transform = 'translateX(' + (-index * 100) + '%)';
+          media._carouselIndex = index;
+          adjustProjectMediaHeights();
         }
 
         function goPrev(){
@@ -355,7 +359,7 @@
         if (Array.isArray(images) && images.length){
           groupId = 'carousel-' + (++carouselGroupId);
           groupItems = [];
-          images.forEach(function(img){
+          images.forEach(function(img, imgIndex){
             var slide = document.createElement('div');
             slide.className = 'carousel-slide';
             var image = document.createElement('img');
@@ -364,6 +368,18 @@
             var altText = img.alt || title || '';
             image.alt = altText;
             slide.appendChild(image);
+            (function(idx, imageRef){
+              function setRatio(){
+                if (!imageRef.naturalWidth || !imageRef.naturalHeight){ return; }
+                media._carouselRatios[idx] = imageRef.naturalWidth / imageRef.naturalHeight;
+                adjustProjectMediaHeights();
+              }
+              if (imageRef.complete){
+                setRatio();
+              } else {
+                imageRef.addEventListener('load', setRatio);
+              }
+            })(imgIndex, image);
             var captionText = img.caption || img.alt || '';
             if (captionText){
               image.setAttribute('data-caption', captionText);
@@ -418,6 +434,64 @@
         }
 
         return media;
+      }
+
+      function adjustProjectMediaHeights(){
+        if (window.matchMedia('(max-width: 860px)').matches){
+          document.querySelectorAll('.project-media').forEach(function(media){
+            media.style.height = '';
+            media.style.width = '';
+            media.style.aspectRatio = '';
+            media.style.justifySelf = '';
+          });
+          return;
+        }
+        var cards = document.querySelectorAll('.project-card');
+        if (!cards.length){ return; }
+        cards.forEach(function(card){
+          var media = card.querySelector('.project-media');
+          var body = card.querySelector('.project-body');
+          if (!media || !body){ return; }
+          media.style.height = '';
+          media.style.width = '';
+          media.style.aspectRatio = '';
+          media.style.justifySelf = '';
+
+          var baseWidth = media.getBoundingClientRect().width || 0;
+          var baseHeight = baseWidth * 9 / 16;
+          var bodyHeight = body.offsetHeight || 0;
+          var ratio = null;
+          if (media._carouselRatios && media._carouselRatios.length){
+            ratio = media._carouselRatios[media._carouselIndex] || media._carouselRatios[0];
+          }
+          var isTallImage = ratio && ratio < (16 / 9);
+          if (isTallImage && bodyHeight > baseHeight){
+            var targetHeight = bodyHeight;
+            var targetWidth = Math.min(baseWidth, targetHeight * ratio);
+            media.style.height = Math.round(targetHeight) + 'px';
+            media.style.width = Math.round(targetWidth) + 'px';
+            media.style.aspectRatio = 'auto';
+            media.style.justifySelf = 'center';
+          } else {
+            media.style.height = '';
+            media.style.width = '';
+            media.style.aspectRatio = '';
+            media.style.justifySelf = '';
+          }
+        });
+      }
+
+      function setupProjectMediaSizing(){
+        adjustProjectMediaHeights();
+        var images = document.querySelectorAll('.project-media img');
+        images.forEach(function(img){
+          if (img.complete){
+            adjustProjectMediaHeights();
+          } else {
+            img.addEventListener('load', adjustProjectMediaHeights);
+          }
+        });
+        window.addEventListener('resize', adjustProjectMediaHeights);
       }
 
       if (data.meta){
@@ -607,6 +681,7 @@
       var year = document.getElementById('y');
       if (year){ year.textContent = new Date().getFullYear(); }
       setupReveal();
+      setupProjectMediaSizing();
     })();
   </script>
 </body>

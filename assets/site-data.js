@@ -114,7 +114,7 @@ window.siteData = {
         images: [
           { src: 'assets/images/MallOfAmericaSignatureEventWin.jpg', alt: 'Mall of America Signature Event win' },
           { src: 'assets/images/SpeedwaySignatureEventWin.jpg', alt: 'Speedway Signature Event win' },
-          { src: 'assets/images/Team&AlliancePartnerOnSage.png', alt: 'Team and alliance partner on stage' },
+          { src: 'assets/images/Team&AlliancePartnerOnStage.png', alt: 'Team and alliance partner on stage' },
           { src: 'assets/images/2022WorldChamps.jpg', alt: '2022 World Championship' },
           { src: 'assets/images/WinMoment2022.jpg', alt: '2022 win moment' },
           { src: 'assets/images/WorldsQualMatch.jpg', alt: 'Worlds qualification match' },
