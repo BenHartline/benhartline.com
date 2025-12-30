@@ -39,7 +39,7 @@ window.siteData = {
         alt: 'Ben Hartline headshot',
       },
     },
-    text: "I'm a Computer Engineering student with experience across Python, C++, and app/web development. I've worked on robotics and autonomous code, and I've built a video-generation pipeline using MoviePy and ElevenLabs for narrated short-form content.",
+    text: "I'm a Computer Engineering student with experience across Python, C++, and app/web development. I've worked on robotics and autonomous code, and I've built a video generation pipeline using MoviePy and ElevenLabs for narrated short form content.",
   },
   experience: {
     title: 'Experience',
@@ -56,7 +56,7 @@ window.siteData = {
         points: [
           'Diagnosed, repaired, and maintained autonomous delivery robots to ensure minimal downtime.',
           'Managed preventative maintenance and parts inventory for continuous fleet operations.',
-          'Part-time seasonal worker during the school year.',
+          'Part time seasonal worker during the school year.',
         ],
       },
       {
@@ -71,7 +71,7 @@ window.siteData = {
         points: [
           'Implemented a local logging library and database enhancements for a new internal mobile app, including automated log uploads to Azure.',
           'Developed a Google Maps API feature to identify optimal sales prospects along user routes and improved UI readability with new route selection options.',
-          'Collaborated through daily stand-ups using Git for version control.',
+          'Collaborated through daily stand ups using Git for version control.',
         ],
       },
       {
@@ -102,7 +102,7 @@ window.siteData = {
         ],
         badges: ['Python', 'MoviePy', 'ElevenLabs'],
         points: [
-          'Developed a Python-based video generation pipeline using MoviePy and API integrations to dynamically create short-form videos.',
+          'Developed a Python based video generation pipeline using MoviePy and API integrations to dynamically create short form videos.',
           'Implemented structured data logging by exporting video metadata and performance metrics to Excel for analysis and content optimization.',
           'Scaled the system to produce viral content, contributing to 700M+ views and 200K+ subscribers across all platforms.',
           'Continuously updated and optimized the codebase to adapt to evolving social media algorithms, formats, and trends for maximum engagement.',
@@ -121,9 +121,9 @@ window.siteData = {
         ],
         badges: ['C++', 'Controls', 'Sensors'],
         points: [
-          'VEX Robotics World Champion (2022) — #1 out of ~20,000 teams worldwide; designed, built, programmed, tested, and drove competition robots using a rigorous engineering design process while collaborating at the highest competitive level.',
-          'Co-founded and led a competitive VEX robotics team; owned full robot lifecycle (design, CAD, programming, documentation, driving) and mentored 2 local middle-school teams, plus supported others at competitions and through online forums.',
-          'Record-setting season (single year): 13 World Championship qualifications (most ever) and longest win streak in VEX history.',
+          'VEX Robotics World Champion (2022) #1 out of ~20,000 teams worldwide; designed, built, programmed, tested, and drove competition robots using a rigorous engineering design process while collaborating at the highest competitive level.',
+          'Co-founded and led a competitive VEX robotics team; owned full robot lifecycle (design, CAD, programming, documentation, driving) and mentored 2 local middle school teams, plus supported others at competitions and through online forums.',
+          'Record setting season (single year): 13 World Championship qualifications (most ever) and longest win streak in VEX history.',
           'Season achievements: 42 total awards including 14x Tournament Champion, 11x Excellence Award, 10x Robot Skills Champion, Think Awards, CAD/Onshape awards, Community Service Google Award, and multiple finals placements.',
         ],
       },

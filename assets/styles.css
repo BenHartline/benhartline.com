@@ -190,10 +190,6 @@
       font-weight: 600;
       font-size: 14px;
     }
-    .about-location::before{
-      content: "Location:";
-      font-size: 16px;
-    }
     @media (max-width: 760px){
       .about-card{ grid-template-columns: 1fr; text-align: center; }
       .about-photo{ margin: 0 auto; }
@@ -304,6 +300,7 @@
       background: rgba(255,255,255,0.04);
       overflow: hidden;
       aspect-ratio: 16 / 9;
+      align-self: center;
     }
     .carousel-track{
       display:flex;
