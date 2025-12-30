@@ -19,7 +19,7 @@ window.siteData = {
     title: "Hi, I'm Ben.",
     subtitle: 'I build solutions that solve real problems.',
     avatar: {
-      src: 'assets/Ben_Headshot.jpg',
+      src: 'assets/images/BenHeadshot2.jpg',
       alt: 'Ben Hartline headshot',
     },
     ctas: [
@@ -98,7 +98,7 @@ window.siteData = {
         title: 'Video Generation Pipeline',
         description: 'Python pipeline using MoviePy + ElevenLabs to generate narrated shorts with timing/subtitles.',
         images: [
-          { src: 'assets/images/100kSubs.jpg', alt: '100k subscribers milestone', caption: '100k test' },
+          { src: 'assets/images/100kSubs.jpg', alt: '100k subscribers milestone', caption: 'Silver Play Button Award' },
         ],
         badges: ['Python', 'MoviePy', 'ElevenLabs'],
         points: [

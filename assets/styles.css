@@ -119,6 +119,7 @@
       aspect-ratio: 1 / 1;
       border-radius: 22px;
       border: 1px solid var(--border);
+      object-fit: cover;
       background:
         radial-gradient(120px 120px at 30% 25%, rgba(96,165,250,0.35), transparent 55%),
         radial-gradient(160px 160px at 70% 70%, rgba(167,139,250,0.28), transparent 55%),
