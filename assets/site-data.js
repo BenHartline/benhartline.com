@@ -35,7 +35,7 @@ window.siteData = {
       role: 'Hi! My name is Ben, I am studying Computer Engineering, Computer Science, & AI at the University of Kentucky.',
       location: '📍Lexington, KY & Cincinnati, OH',
       photo: {
-        src: 'assets/Ben_Headshot.jpg',
+        src: 'assets/images/BenHeadshot.jpg',
         alt: 'Ben Hartline headshot',
       },
     },
@@ -99,8 +99,8 @@ window.siteData = {
         description: 'Python pipeline using MoviePy + ElevenLabs to generate narrated shorts with timing/subtitles.',
         images: [
           { src: 'assets/images/100kSubs.jpg', alt: '100k subscribers milestone', caption: 'Silver Play Button Award' },
+          { src: 'assets/images/VideoGenerationScriptsBlurred.png', alt: 'Blurred Video Generation Scripts', caption: 'Blurred View Of Video Generation Scripts' },
         ],
-        badges: ['Python', 'MoviePy', 'ElevenLabs'],
         points: [
           'Developed a Python based video generation pipeline using MoviePy and API integrations to dynamically create short form videos.',
           'Implemented structured data logging by exporting video metadata and performance metrics to Excel for analysis and content optimization.',
@@ -118,8 +118,16 @@ window.siteData = {
           { src: 'assets/images/2022WorldChamps.jpg', alt: '2022 World Championship' },
           { src: 'assets/images/WinMoment2022.jpg', alt: '2022 win moment' },
           { src: 'assets/images/WorldsQualMatch.jpg', alt: 'Worlds qualification match' },
+          { src: 'assets/images/SpeedwaySignatureEventWin2.jpg', alt: 'Speedway Signature Event win 2' },
+          { src: 'assets/images/StateChamps.jpg', alt: 'State championship' },
+          { src: 'assets/images/CompetetionWithMentoredTeam.jpg', alt: 'Competition with mentored team' },
+          { src: 'assets/images/HauntedSignatureEventWin.jpg', alt: 'Haunted Signature Event win' },
+          { src: 'assets/images/KalahariSignatureEventWin.jpg', alt: 'Kalahari Signature Event win' },
+          { src: 'assets/images/KYStatesSweep.jpg', alt: 'Kentucky States sweep' },
+          { src: 'assets/images/LambeauFieldSignatureEventWin.jpg', alt: 'Lambeau Field Signature Event win' },
+          { src: 'assets/images/MentoringMiddleSchoolRobotics.jpg', alt: 'Mentoring middle school robotics' },
+          { src: 'assets/images/RiverBotsSignatureEventWin.jpg', alt: 'River Bots Signature Event win' },
         ],
-        badges: ['C++', 'Controls', 'Sensors'],
         points: [
           'VEX Robotics World Champion (2022) #1 out of ~20,000 teams worldwide; designed, built, programmed, tested, and drove competition robots using a rigorous engineering design process while collaborating at the highest competitive level.',
           'Co-founded and led a competitive VEX robotics team; owned full robot lifecycle (design, CAD, programming, documentation, driving) and mentored 2 local middle school teams, plus supported others at competitions and through online forums.',
@@ -133,7 +141,6 @@ window.siteData = {
         images: [
           { src: 'assets/images/MiningPC.jpg', alt: 'Crypto Mining PC' },
         ],
-        badges: ['Hardware', 'GPU Tuning', 'Ethereum'],
         points: [
           'Researched, built, and maintained a custom Ethereum mining PC, achieving ~99% uptime through active monitoring and tuning.',
           'Optimized GPU performance by overclocking for higher hashrate and undervolting to reduce power costs, mining until Ethereum\'s transition to proof of stake.',
@@ -143,7 +150,6 @@ window.siteData = {
       {
         title: 'Portfolio (this site)',
         description: 'Deployed on GitHub Pages with Cloudflare DNS; clean, fast, and simple.',
-        badges: ['HTML/CSS', 'GitHub Pages', 'Cloudflare'],
       },
     ],
   },
@@ -172,7 +178,6 @@ window.siteData = {
           'Computer Architecture',
           'Gen AI',
         ],
-        badges: ['C++', 'Python', 'Controls'],
       },
     ],
   },

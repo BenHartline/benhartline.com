@@ -383,9 +383,6 @@
           body.appendChild(line);
         }
 
-        var meta = createMetaBadges(item.badges);
-        if (meta){ body.appendChild(meta); }
-
         wrapper.appendChild(logo);
         wrapper.appendChild(body);
         return wrapper;
@@ -685,8 +682,6 @@
             });
             body.appendChild(list);
           }
-          var meta = createMetaBadges(item.badges);
-          if (meta){ body.appendChild(meta); }
           card.appendChild(body);
           projectsGrid.appendChild(card);
         });
