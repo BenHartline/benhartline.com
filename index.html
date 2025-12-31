@@ -512,34 +512,11 @@
         if (!cards.length){ return; }
         cards.forEach(function(card){
           var media = card.querySelector('.project-media');
-          var body = card.querySelector('.project-body');
-          if (!media || !body){ return; }
+          if (!media){ return; }
           media.style.height = '';
           media.style.width = '';
           media.style.aspectRatio = '';
           media.style.justifySelf = '';
-
-          var baseWidth = media.getBoundingClientRect().width || 0;
-          var baseHeight = baseWidth * 9 / 16;
-          var bodyHeight = body.offsetHeight || 0;
-          var ratio = null;
-          if (media._carouselRatios && media._carouselRatios.length){
-            ratio = media._carouselRatios[media._carouselIndex] || media._carouselRatios[0];
-          }
-          var isTallImage = ratio && ratio < (16 / 9);
-          if (isTallImage && bodyHeight > baseHeight){
-            var targetHeight = bodyHeight;
-            var targetWidth = Math.min(baseWidth, targetHeight * ratio);
-            media.style.height = Math.round(targetHeight) + 'px';
-            media.style.width = Math.round(targetWidth) + 'px';
-            media.style.aspectRatio = 'auto';
-            media.style.justifySelf = 'center';
-          } else {
-            media.style.height = '';
-            media.style.width = '';
-            media.style.aspectRatio = '';
-            media.style.justifySelf = '';
-          }
         });
       }
 
