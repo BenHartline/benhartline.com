@@ -326,6 +326,71 @@
         return wrapper;
       }
 
+      function createEducationItem(item){
+        var wrapper = document.createElement('div');
+        wrapper.className = 'education-item';
+
+        var logo = document.createElement('div');
+        logo.className = 'education-logo';
+        var initialsSource = (item.school || item.title || '').trim();
+        var initials = initialsSource.split(/\s+/).map(function(word){
+          return word.charAt(0);
+        }).join('').slice(0, 2).toUpperCase();
+        if (item.logo && item.logo.src){
+          var img = document.createElement('img');
+          img.src = item.logo.src;
+          img.alt = item.logo.alt || '';
+          img.addEventListener('error', function(){
+            img.remove();
+            logo.textContent = initials;
+          });
+          logo.appendChild(img);
+          attachLightbox(img);
+        } else {
+          logo.textContent = initials;
+        }
+
+        var body = document.createElement('div');
+        var top = document.createElement('div');
+        top.className = 'education-top';
+        var title = document.createElement('h3');
+        title.className = 'education-title';
+        title.textContent = item.title || '';
+        top.appendChild(title);
+        if (item.dates){
+          var dates = document.createElement('div');
+          dates.className = 'education-dates';
+          dates.textContent = item.dates;
+          top.appendChild(dates);
+        }
+        body.appendChild(top);
+
+        if (item.description){
+          var desc = document.createElement('p');
+          desc.className = 'education-description';
+          desc.textContent = item.description;
+          body.appendChild(desc);
+        }
+
+        if (Array.isArray(item.coursework) && item.coursework.length){
+          var label = document.createElement('div');
+          label.className = 'education-coursework-title';
+          label.textContent = 'Relevant Coursework';
+          body.appendChild(label);
+          var line = document.createElement('div');
+          line.className = 'education-coursework';
+          line.textContent = item.coursework.join(' · ');
+          body.appendChild(line);
+        }
+
+        var meta = createMetaBadges(item.badges);
+        if (meta){ body.appendChild(meta); }
+
+        wrapper.appendChild(logo);
+        wrapper.appendChild(body);
+        return wrapper;
+      }
+
       function createCarousel(images, title){
         var media = document.createElement('div');
         media.className = 'project-media';
@@ -627,7 +692,14 @@
         });
       }
 
-      renderList(data.education && data.education.items, 'education-content');
+      var educationContent = document.getElementById('education-content');
+      if (educationContent && data.education && Array.isArray(data.education.items)){
+        educationContent.innerHTML = '';
+        educationContent.className = 'education-list';
+        data.education.items.forEach(function(item){
+          educationContent.appendChild(createEducationItem(item));
+        });
+      }
 
       setText('#skills-title', data.skills && data.skills.title);
       setText('#skills-intro', data.skills && data.skills.intro);
