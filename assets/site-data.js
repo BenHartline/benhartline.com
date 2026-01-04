@@ -25,7 +25,7 @@ window.siteData = {
     ctas: [
       { label: 'View My Work', type: 'scroll', target: '#projects', style: 'primary' },
       { label: 'Download Resume', type: 'link', target: 'assets/Ben_Hartline_Resume_Spring_2026.pdf', external: true, style: 'primary' },
-      { label: 'ben@benhartline.com', type: 'link', target: 'mailto:ben@benhartline.com', style: 'secondary' },
+      { label: 'ben@benhartline.com', type: 'link', target: 'mailto:ben@benhartline.com', style: 'primary' },
     ],
   },
   about: {
@@ -39,7 +39,7 @@ window.siteData = {
         alt: 'Ben Hartline headshot',
       },
     },
-    text: "I'm a Computer Engineering student with experience across Python, C++, and app/web development. I've worked on robotics and autonomous code, and I've built a video generation pipeline using MoviePy and ElevenLabs for narrated short form content.",
+    text: "I’m highly driven, competitive, and motivated by solving hard problems. I thrive in fast-paced environments, take ownership of my work, and enjoy collaborating to turn ideas into real outcomes. I value feedback, continuous improvement, and strong follow-through.",
   },
   experience: {
     title: 'Experience',
@@ -54,9 +54,9 @@ window.siteData = {
           alt: 'Starship Technologies logo',
         },
         points: [
-          'Diagnosed, repaired, and maintained autonomous delivery robots to ensure minimal downtime.',
-          'Managed preventative maintenance and parts inventory for continuous fleet operations.',
-          'Part time seasonal worker during the school year.',
+          'Diagnose, repair, and maintain autonomous delivery robots to ensure minimal downtime.',
+          'Manage preventative maintenance and parts inventory to support continuous fleet operations.',
+          'Work part-time on a seasonal basis during the school year.',
         ],
       },
       {
@@ -109,8 +109,8 @@ window.siteData = {
         ],
       },
       {
-        title: 'Robotics Autonomous Control',
-        description: 'Custom PID control + sensing for consistent autonomous performance in competitive robotics.',
+        title: 'Vex Robotics',
+        description: 'Programmer | Builder | Driver',
         images: [
           { src: 'assets/images/MallOfAmericaSignatureEventWin.jpg', alt: 'Mall of America Signature Event win' },
           { src: 'assets/images/SpeedwaySignatureEventWin.jpg', alt: 'Speedway Signature Event win' },
@@ -129,8 +129,8 @@ window.siteData = {
           { src: 'assets/images/RiverBotsSignatureEventWin.jpg', alt: 'River Bots Signature Event win' },
         ],
         points: [
-          'VEX Robotics World Champion (2022) #1 out of ~20,000 teams worldwide; designed, built, programmed, tested, and drove competition robots using a rigorous engineering design process while collaborating at the highest competitive level.',
-          'Co-founded and led a competitive VEX robotics team; owned full robot lifecycle (design, CAD, programming, documentation, driving) and mentored 2 local middle school teams, plus supported others at competitions and through online forums.',
+          'VEX Robotics World Champion (2022), #1 out of ~20,000 teams worldwide; designed and built competition robots (CAD → prototyping → machining → assembly) and programmed autonomous control systems in C++ including motor control, sensor integration, and custom PID loops for reliable match performance.',
+          'Co-founded and led a competitive VEX robotics team; owned the full robot lifecyclemechanical design, CAD, embedded programming, autonomous routines, documentation, and competition driving while mentoring 2 middle school teams and supporting others at events and through online forums.',
           'Record setting season (single year): 13 World Championship qualifications (most ever) and longest win streak in VEX history.',
           'Season achievements: 42 total awards including 14x Tournament Champion, 11x Excellence Award, 10x Robot Skills Champion, Think Awards, CAD/Onshape awards, Community Service Google Award, and multiple finals placements.',
         ],
@@ -159,7 +159,7 @@ window.siteData = {
       {
         title: 'Bachelor of Engineering (BE) - Computer Engineering, Computer Science, & Artificial Intelligence',
         school: 'University of Kentucky Pigman College of Engineering',
-        dates: '2023 - 2027',
+        dates: 'Aug 2023 - May 2027',
         logo: { src: 'assets/images/ukyLogo.jpg', alt: 'University of Kentucky logo' },
         description: '4.0/4.0 GPA to date. Triple major.',
         coursework: [
@@ -184,7 +184,48 @@ window.siteData = {
   skills: {
     title: 'Skills',
     intro: 'A snapshot of what I use most:',
-    items: ['Python', 'C++', 'Kotlin Multiplatform', 'Flutter', 'Embedded / ADC', 'Git', 'Linux / SSH', 'MoviePy'],
+    items: [
+      // Programming & Languages
+      'Python',
+      'C++',
+      'C',
+      'Kotlin',
+      'Kotlin Multiplatform',
+      'Jetpack Compose',
+      'MATLAB',
+      'Verilog',
+
+      // Software & Tools
+      'Git',
+      'GitHub',
+      'Jira',
+      'Grafana',
+      'Visual Studio',
+      'Android Studio',
+      'Microsoft 365',
+      'Google Workspace',
+      'OnShape',
+      'Autodesk Inventor',
+      'Premiere Pro',
+      'MoviePy',
+      'API Integrations',
+      'Azure',
+      'Data Logging & Telemetry',
+
+      // Embedded / Hardware
+      'FPGA Development',
+      'Sensor Integration',
+      'Robotics',
+      'Soldering',
+      'Digital Multimeter',
+      'CNC Lathe',
+      'Router & Laser Machining',
+      'Test Bench Operation',
+
+      // AI / Data
+      'AI Tools (ChatGPT, Gemini)',
+      'Data Visualization',
+    ],
   },
   contact: {
     title: 'Contact',
